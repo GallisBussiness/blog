@@ -2,16 +2,24 @@ import React, {useEffect,useState} from 'react'
 import Navbar from './Navbar';
 import * as moment from 'moment'
 import { Button } from '@chakra-ui/button';
+import {Pagination} from 'react-laravel-paginex'
 
 function Blog() {
-    const [articles, setArticles] = useState([]);
+    const [articles, setArticles] = useState({});
+    const [data,setData] = useState({});
 
-    useEffect(async () => {
-       const res = await fetch('/api/article');
-       const ar = await res.json();
-       setArticles(ar);
-    },[])
-
+    const getData = async (d)=>{
+    const res = await  fetch('/api/article?page=' + d?.page);
+    const response = await res.json();
+    setData(d)
+   setArticles(response)
+ }
+   useEffect(() => {
+       getData(data)
+       return () => {
+           return null;
+       }
+   }, [data])
     return (
       <>
        <Navbar />
@@ -37,10 +45,10 @@ function Blog() {
         </div>
 
         <div className="grid grid-cols-12 pb-10 sm:px-5 gap-x-8 gap-y-16">
-          {articles?.map((article,index)=> (
+          {articles?.data?.map((article,index)=> (
             <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4" key={index}>
                 <a href="#_" className="block">
-                    <img className="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56" src="https://cdn.devdojo.com/images/may2021/fruit.jpg" />
+                    <img className="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56" src={article.image} />
                 </a>
                 <div className="bg-purple-500 flex items-center px-3 py-1.5 leading-none rounded-full text-xs font-medium uppercase text-white">
                     <span>{article.title}</span>
@@ -51,10 +59,11 @@ function Blog() {
                 <Button colorScheme="blue" variant='solid'>voir l'article</Button>
             </div>
           ))}
-            
-
+           
 
         </div>
+         
+        <Pagination changePage={getData} data={articles}/>
     </div>
 </section>
 

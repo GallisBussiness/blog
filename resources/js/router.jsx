@@ -1,19 +1,23 @@
-import React from 'react'
-import {Switch, Route  } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import {Routes, Route  } from 'react-router-dom'
 import Blog from './components/Blog'
 import Home from './components/Home'
+import { useLocation } from 'react-router';
+
 
 function RouterConf() {
+    const {pathname} = useLocation()
+    
+    useEffect(() => {
+        window.scrollTo({top:0})
+        return () => null;
+    }, [pathname])
     return (
         <>
-         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/blog">
-            <Blog />
-          </Route>
-        </Switch>
+         <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog/>} />
+        </Routes>
         </>
     )
 }

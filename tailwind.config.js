@@ -8,7 +8,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         'wave': "url('/images/wave.svg')",
-       }
+       },
+      fontFamily: {
+        'source': "'Source Serif Pro', serif"
+      }
     },
   },
   variants: {

@@ -17,8 +17,9 @@ function Main() {
                 </svg>
         </div>
         <div className="flex-grow pl-6">
-          <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Developpement Web</h2>
-          <p className="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard ugh iceland kickstarter tumblr live-edge tilde.</p>
+          <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Développement Web</h2>
+          <p className="leading-relaxed text-base">Création de Site vitrine, corporate, évènementiel,
+e-commerce, intranet, application et solutions personalisées</p>
         </div>
       </div>
       <div className="p-4 md:w-1/3 flex">
@@ -28,8 +29,8 @@ function Main() {
             </svg>
         </div>
         <div className="flex-grow pl-6">
-          <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Developpement Mobile</h2>
-          <p className="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard ugh iceland kickstarter tumblr live-edge tilde.</p>
+          <h2 className="text-gray-900 text-lg title-font font-medium mb-2">Développement Mobile</h2>
+          <p className="leading-relaxed text-base">Création d'application mobile multiplateforme avec un design qui refléte votre activités</p>
 
         </div>
       </div>
@@ -41,7 +42,9 @@ function Main() {
         </div>
         <div className="flex-grow pl-6">
           <h2 className="text-gray-900 text-lg title-font font-medium mb-2">UI/UX Design</h2>
-          <p className="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard ugh iceland kickstarter tumblr live-edge tilde.</p>
+          <p className="leading-relaxed text-base">Création de Logos, templates Web, plaquettes publicitaires,
+cartes de visite, newsletters.., Des animations de contenu non intrusives
+pour embellir votre projet.</p>
         
         </div>
       </div>

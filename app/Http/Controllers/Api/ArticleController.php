@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-       return response()->json(Article::all()) ;
+       return response()->json(Article::paginate(5)) ;
     }
 
     /**

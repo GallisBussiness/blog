@@ -24,7 +24,7 @@ class ArticleFactory extends Factory
         return [
             'title' => $this->faker->sentence(rand(2,4)),
             'content' => $this->faker->sentences(4,true),
-            'image' => 'https://via.placeholder.com/400',
+            'image' => 'https://cdn.devdojo.com/images/may2021/fruit.jpg',
         ];
     }
 }
