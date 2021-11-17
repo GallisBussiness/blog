@@ -3,6 +3,7 @@ import {Routes, Route  } from 'react-router-dom'
 import Blog from './components/Blog'
 import Home from './components/Home'
 import { useLocation } from 'react-router';
+import ArticleDetails from './components/ArticleDetails';
 
 
 function RouterConf() {
@@ -17,6 +18,7 @@ function RouterConf() {
          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog/>} />
+          <Route path="/blog/:slug" element={<ArticleDetails/>} />
         </Routes>
         </>
     )

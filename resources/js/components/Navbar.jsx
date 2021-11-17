@@ -34,7 +34,7 @@ export default function Navbar({ fixed }) {
             id="navbar-danger"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-            {!/^\/blog+$/.test(pathname) && <><li className="nav-item">
+            {!/^\/blog.*/.test(pathname) && <><li className="nav-item">
                 <Slink to="a-propos" spy={true} smooth={true} offset={50} duration={500}
                   className="cursor-pointer px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                 >

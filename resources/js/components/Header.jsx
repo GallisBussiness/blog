@@ -1,10 +1,8 @@
 import React from 'react'
-import Navbar from './Navbar'
 
 function Header() {
     return (
         <>
-        <Navbar />
         <section className="text-gray-600 bg-wave bg-no-repeat bg-bottom" id="a-propos">
   <div className=" w-4/5 mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
     <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">

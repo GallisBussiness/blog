@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Article;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class ArticleFactory extends Factory
 {
@@ -21,9 +22,11 @@ class ArticleFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->sentence(rand(2,4));
         return [
-            'title' => $this->faker->sentence(rand(2,4)),
+            'title' => $title,
             'content' => $this->faker->sentences(4,true),
+            'slug' => Str::slug($title),
             'image' => 'https://cdn.devdojo.com/images/may2021/fruit.jpg',
         ];
     }

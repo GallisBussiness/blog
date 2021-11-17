@@ -1,9 +1,20 @@
 import React, {useEffect,useState} from 'react'
-import Navbar from './Navbar';
 import * as moment from 'moment'
 import { Button } from '@chakra-ui/button';
 import {Pagination} from 'react-laravel-paginex'
+import Zoom from  'react-reveal/Zoom'
+import { Link } from 'react-router-dom';
 
+
+const options = {
+    containerClass: 'flex items-center text-center w-300 mx-auto',
+    prevButtonClass: 'text-2xl text-yellow-700',
+    prevButtonText: '<',
+    nextButtonText: '>',
+    nextButtonClass: 'text-3xl text-yellow-700',
+    activeClass: 'bg-yellow-700 text-white',
+    numberButtonClass: 'mx-1 h-6 w-6 text-center rounded-full text-lg'
+}
 function Blog() {
     const [articles, setArticles] = useState({});
     const [data,setData] = useState({});
@@ -22,11 +33,10 @@ function Blog() {
    }, [data])
     return (
       <>
-       <Navbar />
 <section className="bg-white">
     <div className="w-full px-5 py-6 mx-auto space-y-5 sm:py-8 md:py-12 sm:space-y-8 md:space-y-16 max-w-7xl">
-
-        <div className="flex flex-col items-center sm:px-5 md:flex-row">
+         <Zoom>
+            <div className="flex flex-col items-center sm:px-5 md:flex-row">
             <div className="w-full md:w-1/2">
                 <a href="#_" className="block">
                     <img className="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96" src="https://cdn.devdojo.com/images/may2021/cupcakes.jpg" />
@@ -42,11 +52,14 @@ function Blog() {
                     <p className="pt-2 text-sm font-medium">Par <a href="#_" className="mr-1 underline">g@llisDev</a> · <span className="mx-1">April 23rd, 2021</span> · <span className="mx-1 text-gray-600">5 min. read</span></p>
                 </div>
             </div>
-        </div>
+        </div> 
+         </Zoom>
+        
 
         <div className="grid grid-cols-12 pb-10 sm:px-5 gap-x-8 gap-y-16">
           {articles?.data?.map((article,index)=> (
-            <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4" key={index}>
+              <Zoom key={index}>
+                  <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
                 <a href="#_" className="block">
                     <img className="object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56" src={article.image} />
                 </a>
@@ -56,14 +69,19 @@ function Blog() {
                 <h2 className="text-lg font-bold sm:text-xl md:text-2xl"><a href="#_">Creating a Future Worth Living</a></h2>
                 <p className="text-sm text-gray-500">{article.description}</p>
                 <p className="pt-2 text-xs font-medium"><a href="/" className="mr-1 underline">@gallisDev</a> · <span className="mx-1">Publié le { moment(article.created_at).locale('fr').format('DD MMMM YYYY') }</span> · <span className="mx-1 text-gray-600">3 min. read</span></p>
+                <Link to={`/blog/${article.slug}`}>
                 <Button colorScheme="blue" variant='solid'>voir l'article</Button>
+                </Link>
+                
             </div>
+              </Zoom>
+            
           ))}
            
 
         </div>
          
-        <Pagination changePage={getData} data={articles}/>
+        <Pagination changePage={getData} data={articles} options={options}/>
     </div>
 </section>
 
